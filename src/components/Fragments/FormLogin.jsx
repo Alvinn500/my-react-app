@@ -2,8 +2,11 @@ import InputForm from "../Elements/input";
 import Button from "../Elements/button/button";
 
 const FormLogin = () => {
+  const handleLogin = () => {
+    console.log("mmk");
+  };
   return (
-    <form action="">
+    <form>
       <InputForm
         label="Email"
         type="email"
@@ -17,7 +20,7 @@ const FormLogin = () => {
         name="password"
       />
 
-      <Button color="bg-blue-600" custom="w-full">
+      <Button color="bg-blue-600" custom="w-full" onClick={handleLogin}>
         Login
       </Button>
     </form>
