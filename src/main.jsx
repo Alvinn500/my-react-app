@@ -12,6 +12,12 @@ const router = createBrowserRouter([
   {
     path: "/my-react-app",
     element: <LoginPage />,
+    children: [
+      {
+        path: "/product",
+        element: <ProductPage />,
+      },
+    ],
   },
   {
     path: "/",
