@@ -1,5 +1,6 @@
 import InputForm from "../Elements/input";
 import Button from "../Elements/button/button";
+import { Outlet } from "react-router-dom";
 
 const FormLogin = () => {
   const handleLogin = (e) => {
