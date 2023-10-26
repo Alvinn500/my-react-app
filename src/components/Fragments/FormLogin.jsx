@@ -6,7 +6,7 @@ const FormLogin = () => {
     e.preventDefault();
     localStorage.setItem("email", e.target.email.value);
     localStorage.setItem("password", e.target.password.value);
-    window.location.href = "/product";
+    window.location.href = "/my-react-app/product";
   };
   return (
     <form onSubmit={handleLogin}>

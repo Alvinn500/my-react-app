@@ -14,7 +14,7 @@ const router = createBrowserRouter([
     element: <LoginPage />,
     children: [
       {
-        path: "/product",
+        path: "/my-react-app/product",
         element: <ProductPage />,
       },
     ],
