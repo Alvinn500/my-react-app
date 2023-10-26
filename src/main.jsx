@@ -11,7 +11,7 @@ import ProductPage from "./Pages/product";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>add /login or /register in url</div>,
+    element: <LoginPage />,
     errorElement: <ErrorPage />,
   },
   {
