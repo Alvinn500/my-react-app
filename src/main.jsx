@@ -27,7 +27,7 @@ const router = createBrowserRouter([
     element: <ProductPage />,
   },
   {
-    path: "/my-react-app",
+    path: "/my-react-app/",
     element: <ProductPage />,
   },
 ]);
