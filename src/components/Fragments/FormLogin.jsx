@@ -49,9 +49,11 @@ const FormLogin = () => {
         name="password"
       />
 
-      <Button color="bg-blue-600" custom="w-full" type="submit">
-        <Link to={routing}>Login</Link>
-      </Button>
+      <Link to={routing}>
+        <Button color="bg-blue-600" custom="w-full" type="submit">
+          Login
+        </Button>
+      </Link>
       {loginFailed && (
         <p className="text-red-500 text-center my-5">{loginFailed}</p>
       )}
