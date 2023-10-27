@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 const FormLogin = () => {
   const [loginFailed, setLoginFailed] = useState("");
+  const [routing, setRouting] = useState("/my-react-app/");
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -20,7 +21,7 @@ const FormLogin = () => {
       if (status) {
         localStorage.setItem("token", res);
         // window.location.href = "/my-react-app/products";
-        return <Link to={"/my-react-app/products"} />;
+        setRouting("/my-react-app/products");
       } else {
         setLoginFailed(res.response.data);
       }
@@ -49,7 +50,7 @@ const FormLogin = () => {
       />
 
       <Button color="bg-blue-600" custom="w-full" type="submit">
-        Login
+        <Link to={routing}>Login</Link>
       </Button>
       {loginFailed && (
         <p className="text-red-500 text-center my-5">{loginFailed}</p>
