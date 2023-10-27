@@ -2,8 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import Button from "../components/Elements/button/button";
 import CardProduct from "../components/Fragments/CardProduct";
 // import Counter from "../components/Fragments/classStateFull";
-import { getProduct } from "../services/product.service";
-import { getUsername } from "../services/auth.service";
+import { getProducts } from "../services/product.service";
+// import { getUsername } from "../services/auth.service";
+import { useLogin } from "../hooks/useLogin";
 
 // const products = [
 //   {
@@ -40,23 +41,14 @@ const ProductPage = () => {
   const [cart, setCart] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [products, setProducts] = useState([]);
-  const [username, setUsername] = useState("");
+  const username = useLogin();
 
   useEffect(() => {
     setCart(JSON.parse(localStorage.getItem("cart")) || []);
   }, []);
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      setUsername(getUsername(token));
-    } else {
-      window.location.href = "/my-react-app/login";
-    }
-  }, []);
-
-  useEffect(() => {
-    getProduct((data) => {
+    getProducts((data) => {
       setProducts(data);
     });
   }, []);
@@ -122,7 +114,7 @@ const ProductPage = () => {
             products.map((product) => (
               // eslint-disable-next-line react/jsx-key
               <CardProduct key={product.id}>
-                <CardProduct.Header image={product.image} />
+                <CardProduct.Header image={product.image} id={product.id} />
                 <CardProduct.Body name={product.title}>
                   {product.description}
                 </CardProduct.Body>

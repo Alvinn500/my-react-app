@@ -7,6 +7,8 @@ import LoginPage from "./Pages/login.jsx";
 import RegisterPage from "./Pages/register.jsx";
 import ErrorPage from "./Pages/404";
 import ProductPage from "./Pages/product";
+import ProfilePage from "./Pages/profile";
+import DetailProduct from "./Pages/detailProduct";
 
 const router = createBrowserRouter([
   {
@@ -25,14 +27,17 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "/my-react-app/product",
+    path: "/my-react-app/products",
     element: <ProductPage />,
     errorElement: <ErrorPage />,
   },
   {
-    path: "/my-react-app/",
-    element: <ProductPage />,
-    errorElement: <ErrorPage />,
+    path: "/my-react-app/profile",
+    element: <ProfilePage />,
+  },
+  {
+    path: "/my-react-app/product/:id",
+    element: <DetailProduct />,
   },
 ]);
 

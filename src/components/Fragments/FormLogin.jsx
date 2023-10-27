@@ -2,6 +2,7 @@ import InputForm from "../Elements/input";
 import Button from "../Elements/button/button";
 import { useEffect, useRef, useState } from "react";
 import { login } from "../../services/auth.service";
+import { Link } from "react-router-dom";
 
 const FormLogin = () => {
   const [loginFailed, setLoginFailed] = useState("");
@@ -18,7 +19,8 @@ const FormLogin = () => {
     login(data, (status, res) => {
       if (status) {
         localStorage.setItem("token", res);
-        window.location.href = "/my-react-app/product";
+        // window.location.href = "/my-react-app/products";
+        <Link to={"/my-react-app/products"} />;
       } else {
         setLoginFailed(res.response.data);
       }
