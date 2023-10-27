@@ -16,13 +16,16 @@ const AuthLayout = (props) => {
             : "Alredy have an account"}
 
           {type === "login" && (
-            <Link to="/register" className="font-bold text-blue-600 ms-1">
+            <Link
+              to="/my-react-app/register"
+              className="font-bold text-blue-600 ms-1"
+            >
               Register
             </Link>
           )}
 
           {type === "register" && (
-            <Link to="/login" className="font-bold text-blue-600 ms-1">
+            <Link to="/my-react-app/" className="font-bold text-blue-600 ms-1">
               Login
             </Link>
           )}
