@@ -10,25 +10,29 @@ import ProductPage from "./Pages/product";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/my-react-app/",
     element: <LoginPage />,
     errorElement: <ErrorPage />,
   },
   {
-    path: "/login",
+    path: "/my-react-app/login",
     element: <LoginPage />,
+    errorElement: <ErrorPage />,
   },
   {
-    path: "/register",
+    path: "/my-react-app/register",
     element: <RegisterPage />,
+    errorElement: <ErrorPage />,
   },
   {
     path: "/my-react-app/product",
     element: <ProductPage />,
+    errorElement: <ErrorPage />,
   },
   {
     path: "/my-react-app/",
     element: <ProductPage />,
+    errorElement: <ErrorPage />,
   },
 ]);
 

@@ -3,6 +3,7 @@ import Button from "../components/Elements/button/button";
 import CardProduct from "../components/Fragments/CardProduct";
 // import Counter from "../components/Fragments/classStateFull";
 import { getProduct } from "../services/product.service";
+import { getUsername } from "../services/auth.service";
 
 // const products = [
 //   {
@@ -35,15 +36,23 @@ import { getProduct } from "../services/product.service";
 //   },
 // ];
 
-const email = localStorage.getItem("email");
-
 const ProductPage = () => {
   const [cart, setCart] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [products, setProducts] = useState([]);
+  const [username, setUsername] = useState("");
 
   useEffect(() => {
     setCart(JSON.parse(localStorage.getItem("cart")) || []);
+  }, []);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      setUsername(getUsername(token));
+    } else {
+      window.location.href = "/my-react-app/login";
+    }
   }, []);
 
   useEffect(() => {
@@ -64,9 +73,8 @@ const ProductPage = () => {
   }, [cart, products]);
 
   const handleLogout = () => {
-    localStorage.removeItem("email");
-    localStorage.removeItem("password");
-    window.location.href = "/login";
+    localStorage.removeItem("token");
+    window.location.href = "/my-react-app/login";
   };
 
   const handleAddToCart = (id) => {
@@ -103,7 +111,7 @@ const ProductPage = () => {
   return (
     <>
       <div className="flex justify-end h-16 bg-blue-600 text-white items-center px-10">
-        {email}
+        {username}
         <Button custom="ml-5" color="bg-black" onClick={handleLogout}>
           Logout
         </Button>
