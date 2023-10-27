@@ -20,7 +20,7 @@ const FormLogin = () => {
       if (status) {
         localStorage.setItem("token", res);
         // window.location.href = "/my-react-app/products";
-        <Link to={"/my-react-app/products"} />;
+        return <Link to={"/my-react-app/products"} />;
       } else {
         setLoginFailed(res.response.data);
       }
