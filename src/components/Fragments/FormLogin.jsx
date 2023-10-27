@@ -51,7 +51,7 @@ const FormLogin = () => {
 
       <Link to={routing}>
         <Button color="bg-blue-600" custom="w-full" type="submit">
-          Login
+          Login Klik 2x
         </Button>
       </Link>
       {loginFailed && (
