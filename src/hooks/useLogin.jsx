@@ -9,7 +9,7 @@ export const useLogin = () => {
     if (token) {
       setUsername(getUsername(token));
     } else {
-      window.location.href = "/my-react-app/login";
+      window.location.href = "/my-react-app/";
     }
   }, []);
 
